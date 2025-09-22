@@ -1,0 +1,27 @@
+name: Matrix Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [18, 20]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Print environment
+        run: |
+          echo "Running on OS: ${{ matrix.os }}"
+          echo "Using Node.js version: ${{ matrix.node }}"
+          node -v
