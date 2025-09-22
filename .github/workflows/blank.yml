@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:                     # ← مسافتين بعد jobs
-    runs-on: ${{ matrix.os }}   # ← تحت build
+  build:                     
+    runs-on: ${{ matrix.os }}   
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
