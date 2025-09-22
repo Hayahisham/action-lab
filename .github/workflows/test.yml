@@ -1,0 +1,9 @@
+name: ok
+
+on: [workflow_dispatch]
+
+jobs:
+  one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo OK
